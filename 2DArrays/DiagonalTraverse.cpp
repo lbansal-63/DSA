@@ -3,21 +3,37 @@
 using namespace std;
 
 vector<int> findDiagonalOrder(vector<vector<int>>& mat) {
-    int m = mat.size()-1;
-    int n = mat[0].size()-1; 
+    int m = mat.size();
+    int n = mat[0].size(); 
+    vector<int> ans; 
 
-    int row = 0; 
-    int col = 0; 
-    int temp = 0; 
-    while(){
-        while(){
-            row
+    for(int d=0;d<m+n-1;d++){
+        int i,j;
+
+        if(d%2==0){
+            //starting row-col
+            i= min(d,m-1); 
+            j= d-i; 
+
+            while(i>=0 && j<n){
+                ans.push_back(mat[i][j]); 
+                i--; 
+                j++; 
+            }
         }
-    }  
-    
-    while(i<n){
 
+        else{
+            j= min(d,n-1); 
+            i= d-j; 
+
+            while(i<m && j>=0){
+                ans.push_back(mat[i][j]); 
+                i++; 
+                j--; 
+            } 
+        }
     }
+    return ans; 
 }
 
 int main(){
